@@ -18,6 +18,7 @@
 #include "game_params.h"
 #include "io.h"
 #include "params.h"
+#include "rand48.h"
 #include "tcfr.h"
 
 using std::string;

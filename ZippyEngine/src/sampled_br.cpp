@@ -33,6 +33,7 @@
 #include "params.h"
 #include "rand.h"
 #include "sorting.h"
+#include "rand48.h"
 
 using std::string;
 using std::unique_ptr;

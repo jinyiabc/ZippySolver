@@ -17,6 +17,7 @@
 #include "hand_tree.h"
 #include "hand_value_tree.h"
 #include "io.h"
+#include "rand48.h"
 
 using std::unique_ptr;
 

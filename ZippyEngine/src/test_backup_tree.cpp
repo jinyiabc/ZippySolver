@@ -66,6 +66,8 @@ int main(int argc, char *argv[]) {
   observed_bets.AddObservedBet(2, 1, 0, 0, 18);
   // P0 opening bet on river
   observed_bets.AddObservedBet(3, 0, 0, 1, 36);
-  unique_ptr<BettingTrees> subtrees(builder.BuildTrees(observed_bets, 2, 18));
+  int min_bet = 1;
+  int max_bet = 3;
+  unique_ptr<BettingTrees> subtrees(builder.BuildTrees(observed_bets, &min_bet, &max_bet, 2, 18));
   subtrees->GetBettingTree()->Display();
 }

@@ -60,7 +60,7 @@
 #include "unsafe_eg_cfr.h"
 #include "vcfr.h"
 #include "vcfr_state.h"
-
+#include "rand48.h"
 using std::pair;
 using std::shared_ptr;
 using std::string;

@@ -2,7 +2,7 @@
 #define _ECFR_H_
 
 #include <memory>
-
+#include "rand48.h"
 class ECFRNode;
 class ECFRThread;
 class BettingAbstraction;
@@ -12,22 +12,6 @@ class CFRConfig;
 class Node;
 class Reader;
 class Writer;
-
-struct drand48_data
-  {
-    unsigned short int __x[3];        /* Current state.  */
-    unsigned short int __old_x[3]; /* Old state.  */
-    unsigned short int __c;        /* Additive const. in congruential formula.  */
-    unsigned short int __init;        /* Flag for initializing.  */
-    unsigned long long int __a;        /* Factor in congruential formula.  */
-  };
-
-/* Seed random number generator.  */
-extern int srand48_r (long int __seedval, struct drand48_data *__buffer)
-     __THROW __nonnull ((2));
-/* Return non-negative, double-precision floating-point value in [0.0,1.0).  */
-extern int drand48_r (struct drand48_data *__restrict __buffer,
-                      double *__restrict __result) __THROW __nonnull ((1, 2));
 					  
 class ECFRNode {
 public:
@@ -43,6 +27,7 @@ public:
   ECFRNode *IthSucc(int i) const {return succs_[i].get();}
   double *Regrets(void) {return regrets_.get();}
   int *Sumprobs(void) {return sumprobs_.get();}
+  
 private:
   bool terminal_;
   bool showdown_;

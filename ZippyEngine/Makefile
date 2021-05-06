@@ -11,12 +11,12 @@ HEADS =	src/fast_hash.h src/rand.h src/constants.h src/files.h src/cards.h src/i
 	src/rgbr.h src/resolving_method.h src/subgame_utils.h src/dynamic_cbr.h src/eg_cfr.h \
 	src/unsafe_eg_cfr.h src/cfrd_eg_cfr.h src/combined_eg_cfr.h src/regret_compression.h \
 	src/tcfr.h src/rollout.h src/sparse_and_dense.h src/kmeans.h src/reach_probs.h \
-	src/backup_tree.h src/ecfr.h
+	src/backup_tree.h src/ecfr.h src/ieee754.h src/rand48.h
 
 # -Wl,--no-as-needed fixes my problem of undefined reference to
 # pthread_create (and pthread_join).  Comments I found on the web indicate
 # that these flags are a workaround to a gcc bug.
-LIBRARIES = -pthread -Wl,--no-as-needed
+LIBRARIES = -pthread -Wl,--no-as-needed 
 
 # For profiling:
 # LDFLAGS = -pg
@@ -28,7 +28,7 @@ LDFLAGS =
 # -ffast-math makes small changes to results of floating point calculations!
 # For profiling:
 # CFLAGS = -std=c++17 -Wall -O3 -march=native -ffast-math -g -pg
-CFLAGS = -std=c++17 -Wall -O3 -march=native -ffast-math -flto 
+CFLAGS = -std=gnu++17 -Wall -O3 -march=native -ffast-math -flto 
 
 obj/%.o:	src/%.cpp $(HEADS)
 		gcc $(CFLAGS) -c -o $@ $<
@@ -44,7 +44,7 @@ OBJS =	obj/fast_hash.o obj/rand.o obj/files.o obj/cards.o obj/io.o obj/split.o o
 	obj/subgame_utils.o obj/dynamic_cbr.o obj/eg_cfr.o obj/unsafe_eg_cfr.o obj/cfrd_eg_cfr.o \
 	obj/combined_eg_cfr.o obj/regret_compression.o obj/tcfr.o obj/rollout.o \
 	obj/sparse_and_dense.o obj/kmeans.o obj/mcts.o obj/reach_probs.o obj/backup_tree.o \
-	obj/ecfr.o
+	obj/ecfr.o obj/rand48.o
 
 all:	bin/show_num_boards bin/show_boards bin/build_hand_value_tree bin/build_null_buckets \
 	bin/build_rollout_features bin/combine_features bin/build_unique_buckets \

@@ -62,6 +62,7 @@
 #include "sorting.h"
 #include "subgame_utils.h" // CreateSubtrees()
 #include "unsafe_eg_cfr.h"
+#include "rand48.h"
 
 using std::pair;
 using std::shared_ptr;

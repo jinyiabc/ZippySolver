@@ -2,7 +2,6 @@
 #define _TCFR_H_
 
 #include <memory>
-
 // #include "cfr.h"
 
 using namespace std;
@@ -15,6 +14,22 @@ class CFRConfig;
 class Node;
 class Reader;
 class Writer;
+
+struct drand48_data
+  {
+    unsigned short int __x[3];        /* Current state.  */
+    unsigned short int __old_x[3]; /* Old state.  */
+    unsigned short int __c;        /* Additive const. in congruential formula.  */
+    unsigned short int __init;        /* Flag for initializing.  */
+    unsigned long long int __a;        /* Factor in congruential formula.  */
+  };
+
+/* Seed random number generator.  */
+extern int srand48_r (long int __seedval, struct drand48_data *__buffer)
+     __THROW __nonnull ((2));
+/* Return non-negative, double-precision floating-point value in [0.0,1.0).  */
+extern int drand48_r (struct drand48_data *__restrict __buffer,
+                      double *__restrict __result) __THROW __nonnull ((1, 2));
 
 #define T_REGRET unsigned int
 #define T_VALUE int
@@ -111,7 +126,8 @@ public:
   int **active_rems_;
   int batch_size_;
   unsigned long long int *total_its_;
-  struct drand48_data rand_buf_;
+  // struct drand48_data rand_buf_;
+  struct drand48_data  rand_buf_;
   // Keep this as a signed int so we can use it in winnings calculation
   // without casting.
   int board_count_;

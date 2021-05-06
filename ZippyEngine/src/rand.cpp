@@ -3,7 +3,7 @@
 #include <time.h>
 
 #include "rand.h"
-
+#define CYGWIN
 #ifdef CYGWIN
 #define srand48 srand
 #endif

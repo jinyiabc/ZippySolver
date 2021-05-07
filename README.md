@@ -28,10 +28,10 @@ The instructions here are for Windows 10.
 Test: 
 	```
 cd /home/jinyi/ZippySolver/ZippyEngine/runs
-build game tree
+1. build game tree
 ../bin/build_hand_value_tree.exe ms0_params
-build betting tree
+2. build betting tree
 ../bin/build_betting_tree ms0_params mb1b1_params
-Run the test.
+3. Run the test.
 ../bin/run_cfrp ms0_params none_params mb1b1_params cfrps_params 8 1 200
 	```

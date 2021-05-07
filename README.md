@@ -25,6 +25,7 @@ The instructions here are for Windows 10.
 
 
 # Test: 
+0. browse to folder.
 	```
 	cd /home/jinyi/ZippySolver/ZippyEngine/runs
 	```

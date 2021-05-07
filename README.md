@@ -23,3 +23,15 @@ The instructions here are for Windows 10.
 	```
 
 7.	TODO
+
+
+Test: 
+	```
+cd /home/jinyi/ZippySolver/ZippyEngine/runs
+# build game tree
+../bin/build_hand_value_tree.exe ms0_params
+# build betting tree
+../bin/build_betting_tree ms0_params mb1b1_params
+# Run the test.
+../bin/run_cfrp ms0_params none_params mb1b1_params cfrps_params 8 1 200
+	```
